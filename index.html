@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UPI QR</title>
+  <meta name="description" content="Generate UPI payment QR codes with a preset amount. Works offline.">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="UPI QR">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>UPI QR</h1>
+      <span id="status" class="status" hidden>Offline ready</span>
+    </header>
+
+    <section aria-label="Pay to">
+      <div class="label">Pay to</div>
+      <div id="chips" class="chips" role="radiogroup" aria-label="UPI ID"></div>
+    </section>
+
+    <section aria-label="Amount">
+      <label class="label" for="amount">Amount</label>
+      <div class="amount-field">
+        <span class="rupee" aria-hidden="true">₹</span>
+        <input id="amount" type="text" inputmode="decimal" autocomplete="off"
+               placeholder="0" maxlength="9" autofocus>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+    </section>
+
+    <section class="result" aria-live="polite">
+      <div id="qrCard" class="qr-card empty">
+        <div id="qr" class="qr"></div>
+        <div id="placeholder" class="placeholder">Enter an amount to generate the QR</div>
+      </div>
+      <div id="meta" class="meta" hidden>
+        <div id="metaAmount" class="meta-amount"></div>
+        <div id="metaName" class="meta-name"></div>
+        <div id="metaUpi" class="meta-upi"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="qrcode.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
